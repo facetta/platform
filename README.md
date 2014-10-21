@@ -14,7 +14,8 @@ Provides extensible common utility classes for rapid JSON API development. Offer
 
 ```js
 var facet = require('facet-platform'),
-  ApiCore = facet.ApiCore,
+  ApiCore = facet.ApiCore;
+
 var TodosAPI = function ( options ){
   // define mongoose schema and bind events here
   // see [another](https://github.com/facet/gatekeeper) [facet](https://github.com/facet/category) [module](https://github.com/facet/catalog) for an example
