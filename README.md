@@ -18,7 +18,10 @@ var facet = require('facet-platform'),
 
 var TodosAPI = function ( options ){
   // define mongoose schema and bind events here
-  // see [another](https://github.com/facet/gatekeeper) [facet](https://github.com/facet/category) [module](https://github.com/facet/catalog) for an example
+  // see other facet modules for examples:
+  //   https://github.com/facet/gatekeeper
+  //   https://github.com/facet/category
+  //   https://github.com/facet/catalog
 };
 
 /**
