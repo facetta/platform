@@ -13,6 +13,8 @@ Provides extensible common utility classes for rapid JSON API development. Offer
 #### Creating a new resource API class
 
 ```js
+var facet = require('facet-platform'),
+  ApiCore = facet.ApiCore,
 var TodosAPI = function ( options ){
   // define mongoose schema and bind events here
   // see [another](https://github.com/facet/gatekeeper) [facet](https://github.com/facet/category) [module](https://github.com/facet/catalog) for an example
@@ -43,7 +45,7 @@ facet.init();
 // PUT /todos/:id
 // DELETE /todos/:id
 app.use( '/api/v1', todosAPI.bindRoutes( express.Router(), {
-  routes: {
+  route: {
     routeBase: '/todos',
     resourceReference: 'TodosAPI',
   }}));
@@ -59,8 +61,6 @@ http.createServer(app).listen(8888, function(){
 ```js
 var facet = require('facet-platform'),
   ApiCore = facet.ApiCore;
-  
-
 
 // create a todo
 var importantTodo = {
