@@ -1,0 +1,30 @@
+{
+  "name": "facet-platform",
+  "version": "0.1.0",
+  "description": "Collection of modules providing a base for rapid API development",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require test/support/env --reporter spec --check-leaks test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/facet/platform.git"
+  },
+  "keywords": [
+    "facet",
+    "facet-platform"
+  ],
+  "author": "Alexander Manea, Ilya Shindyapin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/facet/platform/issues"
+  },
+  "homepage": "https://github.com/facet/platform",
+  "dependencies": {
+    "underscore": "^1.6.0"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "mocha": "^1.21.5"
+  }
+}
