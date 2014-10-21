@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="https://raw.github.com/facet/gatekeeper/master/assets/facet.png" />
+</p>
 # Facet Platform
 
 Provides extensible common utility classes for rapid JSON API development. Offers the following functionality:
