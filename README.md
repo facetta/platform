@@ -16,8 +16,7 @@ Provides extensible common utility classes for rapid JSON API development. Offer
 #### Creating a new resource API class
 
 ```js
-var facet = require('facet-platform'),
-  ApiCore = facet.ApiCore;
+var facet = require('facet-platform');
 
 var TodosAPI = function(facet.moduleOptions) {
   // define mongoose schema and bind events here
@@ -28,9 +27,11 @@ var TodosAPI = function(facet.moduleOptions) {
 };
 
 /**
- * Todos API inherits from API Core which enables CRUD functionality
+ * Todos API inherits from API Core which enables CRUD functionality.
+ * The definition of new facet classes would be done in a different 
+ * module which depends on facet-core
  */
-util.inherits(TodosAPI, ApiCore);
+util.inherits(TodosAPI, require('facet-core').ApiCore);
 
 // instantiate the new API class, see next examples for usage
 todosAPI = new TodosAPI(facet.moduleOptions);
@@ -40,8 +41,7 @@ todosAPI = new TodosAPI(facet.moduleOptions);
 
 ```js
 var facet = require('facet-platform'),
-  ApiCore = facet.ApiCore,
-  TodosAPI = require('./path/to/todos')
+  TodosAPI = require('./path/to/todos'),
   app = require('express')();
 
 // platform init
@@ -71,8 +71,7 @@ http.createServer(app).listen(8888, function(){
 #### Using CRUD functions directly or in custom implementations
 
 ```js
-var facet = require('facet-platform'),
-  ApiCore = facet.ApiCore;
+var facet = require('facet-platform');
 
 // create a todo
 var importantTodo = {
