@@ -5,10 +5,10 @@
 
 Provides extensible common utility classes for rapid JSON API development. Offers the following functionality:
 
-* Abstration of middleware specific code for framework agnostic use.
+* Abstration of middleware specific code for framework agnostic use
 * Hanlding of request/response lifecycle
 * Built in CRUD functionality via find, findOne, create, update, delete functions for any resource you create
-* Management of event bus (aka [Intercom](https://github.com/facet/intercom)) used for decoupled module communication.
+* Management of event bus (aka [Intercom](https://github.com/facet/intercom)) used for decoupled module communication
 
 
 ## Examples
@@ -19,7 +19,7 @@ Provides extensible common utility classes for rapid JSON API development. Offer
 var facet = require('facet-platform'),
   ApiCore = facet.ApiCore;
 
-var TodosAPI = function ( options ){
+var TodosAPI = function(facet.moduleOptions) {
   // define mongoose schema and bind events here
   // see other facet modules for examples:
   //   https://github.com/facet/gatekeeper
@@ -32,18 +32,23 @@ var TodosAPI = function ( options ){
  */
 util.inherits(TodosAPI, ApiCore);
 
+// instantiate the new API class, see next examples for usage
 todosAPI = new TodosAPI(facet.moduleOptions);
 ```
 
-#### Setting up an application using express 4
+#### Setting up a JSON API server using express 4
 
 ```js
 var facet = require('facet-platform'),
   ApiCore = facet.ApiCore,
+  TodosAPI = require('./path/to/todos')
   app = require('express')();
 
 // platform init
-facet.init();
+facet.init(app, {dbServer: 'mongodb://localhost:27017/myapp'});
+
+// instantiate todos API
+todosAPI = new TodosAPI(facet.moduleOptions);
 
 // auto route binding for CRUD routes:
 // GET /todos
@@ -51,11 +56,11 @@ facet.init();
 // POST /todos
 // PUT /todos/:id
 // DELETE /todos/:id
+// Advanced route binding across different domains is
+// possible as well. See The facet-commerce for an example.
 app.use( '/api/v1', todosAPI.bindRoutes( express.Router(), {
-  route: {
-    routeBase: '/todos',
-    resourceReference: 'TodosAPI',
-  }}));
+  routeBase: '/todos'
+}));
   
 http.createServer(app).listen(8888, function(){
   console.log('Express server listening on port 8888');
@@ -109,7 +114,6 @@ TodosAPI.find(query)
     console.log('booo: ', err);
   })
   .end();
-;
 ```
 
 ## Coming Soon...

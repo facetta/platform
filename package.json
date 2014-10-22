@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/facet/platform",
   "dependencies": {
+    "facet-intercom": "^0.1.0",
+    "facet-response-handler": "https://github.com/facet/response-handler/tarball/master",
+    "mongoose": "^3.8.17",
     "underscore": "^1.6.0"
   },
   "devDependencies": {
