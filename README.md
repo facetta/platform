@@ -16,7 +16,7 @@ Provides extensible common utility classes for rapid JSON API development. Offer
 #### Creating a new resource API class
 
 ```js
-var facet = require('facet-platform');
+var ApiCore = require('facet-core').ApiCore;
 
 var TodosAPI = function(facet.moduleOptions) {
   // define mongoose schema and bind events here
@@ -31,10 +31,7 @@ var TodosAPI = function(facet.moduleOptions) {
  * The definition of new facet classes would be done in a different 
  * module which depends on facet-core
  */
-util.inherits(TodosAPI, require('facet-core').ApiCore);
-
-// instantiate the new API class, see next examples for usage
-todosAPI = new TodosAPI(facet.moduleOptions);
+util.inherits(TodosAPI, ApiCore);
 ```
 
 #### Setting up a JSON API server using express 4
