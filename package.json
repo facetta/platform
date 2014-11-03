@@ -27,7 +27,9 @@
     "underscore": "^1.6.0"
   },
   "devDependencies": {
+    "body-parser": "^1.9.2",
     "chai": "^1.9.2",
+    "express": "^4.10.1",
     "mocha": "^1.21.5"
   }
 }

@@ -37,15 +37,22 @@ util.inherits(TodosAPI, ApiCore);
 #### Setting up a JSON API server using express 4
 
 ```js
-var facet = require('facet-platform'),
-  TodosAPI = require('./path/to/todos'),
+var facet = require('facet-platform')(),
   app = require('express')();
-
-// platform init
-facet.init(app, {dbServer: 'mongodb://localhost:27017/myapp'});
 
 // instantiate todos API
 todosAPI = new TodosAPI(facet.moduleOptions);
+
+// set up facet modules
+facet
+  .useModules({
+    'todo': require('./path-to-todos')
+  })
+  .setModuleOptions({dbServer: 'mongodb://localhost:27017'})
+  .init(app);
+
+app.use(bodyParser.json());
+app.set('port', process.env.PORT || 9393);
 
 // auto route binding for CRUD routes:
 // GET /todos
@@ -55,7 +62,7 @@ todosAPI = new TodosAPI(facet.moduleOptions);
 // DELETE /todos/:id
 // Advanced route binding across different domains is
 // possible as well. See The facet-commerce for an example.
-app.use( '/api/v1', todosAPI.bindRoutes( express.Router(), {
+app.use( '/api/v1', facet.getModule('todo').bindRoutes( express.Router(), {
   routeBase: '/todos'
 }));
   
@@ -63,6 +70,8 @@ http.createServer(app).listen(8888, function(){
   console.log('Express server listening on port 8888');
 });
 ```
+
+Also checkout out the [sample app](https://github.com/facet/platform/blob/master/sample-apps/auto-route-binding.js).
 
 
 #### Using CRUD functions directly or in custom implementations
