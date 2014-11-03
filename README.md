@@ -40,9 +40,6 @@ util.inherits(TodosAPI, ApiCore);
 var facet = require('facet-platform')(),
   app = require('express')();
 
-// instantiate todos API
-todosAPI = new TodosAPI(facet.moduleOptions);
-
 // set up facet modules
 facet
   .useModules({
