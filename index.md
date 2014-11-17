@@ -3,6 +3,8 @@ layout: index
 ---
 
 
+
+
 # Facet Platform
 
 Provides extensible common utility classes for rapid JSON API development. Offers the following functionality:
@@ -11,8 +13,6 @@ Provides extensible common utility classes for rapid JSON API development. Offer
 * Handling of request/response lifecycle
 * Built in CRUD functionality via find, findOne, create, update, delete functions for any resource you create
 * Management of event bus (aka [Intercom](https://github.com/facet/intercom)) used for decoupled module communication
-
-test
 
 ## Examples
 
