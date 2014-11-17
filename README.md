@@ -10,6 +10,7 @@ Provides extensible common utility classes for rapid JSON API development. Offer
 * Built in CRUD functionality via find, findOne, create, update, delete functions for any resource you create
 * Management of event bus (aka [Intercom](https://github.com/facet/intercom)) used for decoupled module communication
 
+test-test
 
 ## Examples
 
