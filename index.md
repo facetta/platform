@@ -18,7 +18,7 @@ Provides extensible common utility classes for rapid JSON API development. Offer
 
 #### Creating a new resource API class
 
-See the [facet core module](https://github.com/facet/core) for details on creating API resources.
+See the [facet core module](http://facet.github.io/core/) for details on creating API resources.
 
 ```js
 var ApiCore = require('facet-core').ApiCore;
