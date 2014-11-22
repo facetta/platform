@@ -1,7 +1,7 @@
 {
   "name": "facet-platform",
   "version": "0.1.0",
-  "description": "Collection of modules providing a base for rapid API development",
+  "description": "Orchestration of facet modules for rapid API development",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require test/support/env --reporter spec --check-leaks test/"
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/facet/platform/issues"
   },
-  "homepage": "https://github.com/facet/platform",
+  "homepage": "https://facet.github.io/platform",
   "dependencies": {
     "facet-intercom": "^0.1.0",
     "facet-response-handler": "https://github.com/facet/response-handler/tarball/master",
