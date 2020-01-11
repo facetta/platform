@@ -1,2 +1,8 @@
 markdown: kramdown
 path: http://facet.github.io
+
+title: facet
+description: extensible, framework agnostic JSON API platform for Node.js
+google_analytics: UA-52060208-1
+show_downloads: true
+theme: jekyll-theme-minimal

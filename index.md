@@ -1,131 +1,22 @@
----
-layout: index
----
+### Welcome to GitHub Pages.
+This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:
 
-
-
-
-# Facet Platform
-
-Provides extensible common utility classes for rapid JSON API development. Offers the following functionality:
-
-* Abstration of middleware specific code for framework agnostic use
-* Handling of request/response lifecycle
-* Built in CRUD functionality via find, findOne, create, update, delete functions for any resource you create
-* Management of event bus (aka [Intercom](https://github.com/facet/intercom)) used for decoupled module communication
-
-## Examples
-
-#### Creating a new resource API class
-
-See the [facet core module](http://facet.github.io/core/) for details on creating API resources.
-
-```js
-var ApiCore = require('facet-core').ApiCore;
-
-var TodosAPI = function(facet.moduleOptions) {
-  // define mongoose schema and bind events here
-  // see other facet modules for examples:
-  //   https://github.com/facet/gatekeeper
-  //   https://github.com/facet/category
-  //   https://github.com/facet/catalog
-};
-
-/**
- * Todos API inherits from API Core which enables CRUD functionality.
- * The definition of new facet classes would be done in a different 
- * module which depends on facet-core
- */
-util.inherits(TodosAPI, ApiCore);
+```
+$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
 ```
 
-#### Setting up a JSON API server using express 4
+If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.
 
-```js
-var facet = require('facet-platform')(),
-  app = require('express')();
+### Designer Templates
+We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.
 
-// set up facet modules
-facet
-  .useModules({
-    'todo': require('./path-to-todos')
-  })
-  .setModuleOptions({dbServer: 'mongodb://localhost:27017'})
-  .init(app);
+### Rather Drive Stick?
+If you prefer to not use the automatic generator, push a branch named `gh-pages` to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.
 
-app.use(bodyParser.json());
-app.set('port', process.env.PORT || 9393);
+### Authors and Contributors
+You can @mention a GitHub username to generate a link to their profile. The resulting `<a>` element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (@defunkt), PJ Hyett (@pjhyett), and Tom Preston-Werner (@mojombo) founded GitHub.
 
-// auto route binding for CRUD routes:
-// GET /todos
-// GET /todos/:id
-// POST /todos
-// PUT /todos/:id
-// DELETE /todos/:id
-// Advanced route binding across different domains is
-// possible as well. See The facet-commerce for an example.
-app.use( '/api/v1', facet.getModule('todo').bindRoutes( express.Router(), {
-  routeBase: '/todos'
-}));
-  
-http.createServer(app).listen(8888, function(){
-  console.log('Express server listening on port 8888');
-});
-```
-
-Also checkout out the [sample app](https://github.com/facet/platform/blob/master/sample-apps/auto-route-binding.js).
-
-
-#### Using CRUD functions directly or in custom implementations
-
-```js
-var facet = require('facet-platform');
-
-// create a todo
-var importantTodo = {
-  author: 'Action Bronson',
-  task: 'Kick back'
-}
-
-todosAPI.create(importantTodo)
-  .then(function(data) {
-    console.log('created task: ', data);
-  },
-  function(err) {
-    console.log('booo: ', err);
-  })
-  .end();
-
-// query.conditions, query.fields, and query.options 
-// are regular mongoose queries
-var findQuery = {
-  conditions: {task: 'Kick back'},
-  fields: '',
-  options: {
-    lean: true
-  }
-}
-
-// TodosAPI.find() is a wrapper for mongoose's find(), same 
-// with findOne(), create(), remove() and update()
-
-TodosAPI.find(query, successCb, errorCb);
-
-// or via promises
-
-TodosAPI.find(query)
-  .then(function(data) {
-    console.log('success! ', data);
-  },
-  function(err) {
-    console.log('booo: ', err);
-  })
-  .end();
-```
-
-## Coming Soon...
-
-* actual documentation and example apps
-* multitenancy support w/ multiple apps per tenant
-* error handling base class
-* logging functionlality 
+### Support or Contact
+Having trouble with Pages? Check out the documentation at http://help.github.com/pages or contact support@github.com and we’ll help you sort it out.
